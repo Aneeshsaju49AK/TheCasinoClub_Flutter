@@ -1,5 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:thecasinoclub/export/export.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,112 +8,70 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
+  // this list made for show the value on gridview of heading
+  List<String> optionsOfview = [
+    "WholeSaler",
+    "Retailer",
+    "Operator",
+    "Player",
+  ];
+  // this list is created to how the platforms which listed
+  List<String> platformsOption = [
+    "Android",
+    "Ios",
+    "Web",
+  ];
+  // in this late pagecontroller is initialised
+  // and one variable which is local initialised as "0"
   late PageController controller;
-  int _currentIndex =0;
+  int _currentIndex = 0;
+
+  //called init method for now and pagecontroller is set as _currentIndex
   @override
   void initState() {
-   controller = PageController(initialPage: _currentIndex);
+    controller = PageController(initialPage: _currentIndex);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     controller = PageController(initialPage: _currentIndex);
+    //to set the width,and height use MediaQuery to access the width and height
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    // The all Page is Wrap with SingleChildScrollview
     return SingleChildScrollView(
       child: Column(
         children: [
-          Container(
-            width: width / 1,
-            height: height / 9,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  width: width / 1.7,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Welcome back",
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                      Text(
-                        "Administator",
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                CircleAvatar(
-                  radius: 32,
-                ),
-              ],
-            ),
-          ),
+          //this widget is resposiable for the Welcome message
+          //also take width and height as parameters
+          WelcomeHeadHomeWidget(width: width, height: height),
           Padding(
             padding: const EdgeInsets.only(
               left: 14,
               top: 14,
               right: 14,
             ),
-            child: Container(
-              width: width / 1,
-              height: height / 2.3,
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                ),
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(6.0),
-                    child: Container(
-                      width: width / 4,
-                      height: height / 6,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          10,
-                        ),
-                        color: Colors.blue,
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
+            // This widget is responsible for the gridview with four options
+            // the parameters are width,height,list of options
+            child: GridViewForOptionsWidgetsHome(
+                width: width, height: height, optionsOfview: optionsOfview),
           ),
-          Container(
+          // This sizedBox is used to create the CarouselSlider
+          // no state mgt used so not refactored
+          SizedBox(
             width: width / 1,
             height: height / 3,
             child: Column(
               children: [
-                Container(
-                  width: width / 1,
-                  height: height / 19,
-                  child: Row(
-                    children: [
-                      CustomSizedBox(
-                        value: 20,
-                      ),
-                      CustomTextWidget(
-                        text: "Cash Points",
-                      ),
-                    ],
-                  ),
+                CashPointWidget(
+                  width: width,
+                  height: height,
                 ),
-                Container(
+                SizedBox(
                   width: width / 1,
                   height: height / 4.3,
                   child: CarouselSlider.builder(
-                    
                     itemCount: 3,
                     itemBuilder: (context, index, int realIndex) {
                       return Padding(
@@ -133,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                     options: CarouselOptions(
-                      height: height/4,
+                      height: height / 4,
                       autoPlay: true,
                       onPageChanged: (index, reason) {
                         setState(() {
@@ -143,96 +99,32 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                Container(
-                  width: width / 1,
-                  height: height / 22,
-                  
-                  child: Center(
-                    child: SmoothPageIndicator(
-                     
-                      controller: controller , 
-                    count: 3,
-                    effect: WormEffect(),),
-                  ),
-                ),
+                // This is the widget is used for show the SmoothPageIndicators
+                // paramters are width,height, also the controller
+                SmoothPageIndicatorWidget(
+                    width: width, height: height, controller: controller),
               ],
             ),
           ),
-          Container(
+
+          // In this sized having the heading of platforms
+          // also the circle avatar view
+          // parameters are width,and height, also the list of platforms
+          SizedBox(
             width: width / 1,
             height: height / 5,
-           
             child: Column(
               children: [
-                Container(
-                   width: width / 1,
-                  height: height / 19,
-                  child: Row(
-                    children: [
-                      CustomSizedBox(
-                        value: 20,
-                      ),
-                      CustomTextWidget(text: "Game Platfroms",),
-                    ],
-                  ),
-                ),
-                Container(
-                  width: width/1,
-                  height: height/6.9,
-                 
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          CircleAvatar(radius: 40,),
-                          CustomTextWidget(text: "mobile",)
-                        ],
-                      ),
-                    );
-                  },),
-                )
+                PlatformHeadingWidget(width: width, height: height),
+                PlatformCircleWidget(
+                    width: width,
+                    height: height,
+                    platformsOption: platformsOption),
               ],
             ),
           )
         ],
       ),
-    );
-  }
-}
-
-class CustomTextWidget extends StatelessWidget {
-  final String text;
-  const CustomTextWidget({
-    super.key,
-    required this.text,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontSize: 20,
-      ),
-    );
-  }
-}
-
-class CustomSizedBox extends StatelessWidget {
-  final double value;
-  const CustomSizedBox({
-    super.key,
-    required this.value,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: value,
     );
   }
 }
