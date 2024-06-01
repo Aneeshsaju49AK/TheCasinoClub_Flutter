@@ -5,23 +5,25 @@ class CashPointWidget extends StatelessWidget {
     super.key,
     required this.width,
     required this.height,
+    required this.textValue,
   });
 
   final double width;
   final double height;
+  final String textValue;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width / 1,
       height: height / 19,
-      child: const Row(
+      child:  Row(
         children: [
           CustomSizedBox(
             widthvalue: 20,
           ),
           CustomTextWidget(
-            text: "Cash Points",
+            text: textValue,
           ),
         ],
       ),

@@ -67,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 CashPointWidget(
                   width: width,
                   height: height,
+                  textValue: "Cash Points",
                 ),
                 SizedBox(
                   width: width / 1,

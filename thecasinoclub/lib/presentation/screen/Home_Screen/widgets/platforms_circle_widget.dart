@@ -31,7 +31,7 @@ class PlatformCircleWidget extends StatelessWidget {
                 CustomTextWidget(
                   text: platformsOption[index],
                   fontSize: 10,
-                )
+                ),
               ],
             ),
           );
