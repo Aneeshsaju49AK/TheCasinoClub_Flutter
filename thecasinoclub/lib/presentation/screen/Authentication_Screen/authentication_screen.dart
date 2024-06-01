@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:thecasinoclub/export/export.dart';
-import 'package:thecasinoclub/presentation/screen/Games_Screen/games_screen.dart';
-import 'package:thecasinoclub/presentation/screen/Widgets_Common/cashpoint_heading_container.dart';
 
 class AuthenticationScreen extends StatelessWidget {
   const AuthenticationScreen({super.key});
@@ -24,7 +21,7 @@ class AuthenticationScreen extends StatelessWidget {
             textValue: "List of Request",
           ),
           SingleChildScrollView(
-            child: Container(
+            child: SizedBox(
               width: width / 1,
               height: height / 1.3,
               child: ListView.builder(
@@ -41,102 +38,56 @@ class AuthenticationScreen extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width: width/1,
-                              height: height/17,
-                             
-                              child: Row(
-                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  CustomTextWidget(text: "Id :",fontSize: 18,),
-                                  CustomSizedBox(widthvalue: 10,),
-                                   CustomTextWidget(text: "10",fontSize: 18,),
-                                ],
-                              ),
-                            ),
+                          UserInfoInAuthentication(
+                            width: width,
+                            height: height,
+                            inputOne: "Id :",
+                            inputTwo: "10",
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width: width/1,
-                              height: height/17,
-                              
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  CustomTextWidget(text: "UserName :",fontSize: 18,),
-                                  CustomSizedBox(widthvalue: 10,),
-                                   CustomTextWidget(text: "Aneesh@73",fontSize: 18,),
-                                ],
-                              ),
-                            ),
+                          UserInfoInAuthentication(
+                            width: width,
+                            height: height,
+                            inputOne: "UserName :",
+                            inputTwo: "Aneesh@73",
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width: width/1,
-                              height: height/17,
-                              
-                              child: Row(
-                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  CustomTextWidget(text: "Name :",fontSize: 18,),
-                                  CustomSizedBox(widthvalue: 10,),
-                                   CustomTextWidget(text: "Aneesh",fontSize: 18,),
-                                ],
-                              ),
-                            ),
+                          UserInfoInAuthentication(
+                            width: width,
+                            height: height,
+                            inputOne: "Name :",
+                            inputTwo: "Aneesh@73",
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width: width/1,
-                              height: height/17,
-                              
-                              child: Row(
-                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  CustomTextWidget(text: "Balance :",fontSize: 18,),
-                                  CustomSizedBox(widthvalue: 10,),
-                                   CustomTextWidget(text: "1000",fontSize: 18,),
-                                ],
-                              ),
-                            ),
+                          UserInfoInAuthentication(
+                            width: width,
+                            height: height,
+                            inputOne: "Balance :",
+                            inputTwo: "4573",
                           ),
-                          Container(
-                            width: width/1,
-                            height: height/ 12,
-                           
+                          SizedBox(
+                            width: width / 1,
+                            height: height / 12,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Container(
-                                  width: width/2,
-                                  height: height/17,
-                                  
-                                  decoration: BoxDecoration(
-                                    color: Colors.greenAccent,
-                                    borderRadius: BorderRadius.circular(40),
-                                  ),
-                                  child: Center(child: CustomTextWidget(text: "Approval",fontSize: 16,),),
+                                CustomButtomCommon(
+                                  width: width,
+                                  height: height,
+                                  textValue: "Approval",
+                                  heightNeeded: 17,
+                                  widthNeeded: 2,
+                                  colorNeeded: Colors.greenAccent,
                                 ),
-                                Container(
-                                  width: width/3.2,
-                                  height: height/17,
-                                  
-                                  decoration: BoxDecoration(
-                                    color: Colors.redAccent,
-                                    borderRadius: BorderRadius.circular(40),
-                                  ),
-                                  child: Center(child: CustomTextWidget(text: "Ignore",fontSize: 16,)),
+                                CustomButtomCommon(
+                                  width: width,
+                                  height: height,
+                                  textValue: "Ignore",
+                                  heightNeeded: 17,
+                                  widthNeeded: 3.2,
+                                  colorNeeded: Colors.redAccent,
                                 ),
                               ],
                             ),
                           )
                         ],
-                        
                       ),
                     ),
                   );

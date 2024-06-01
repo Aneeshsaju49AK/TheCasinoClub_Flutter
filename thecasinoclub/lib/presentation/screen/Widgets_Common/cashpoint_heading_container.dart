@@ -19,7 +19,7 @@ class CashPointWidget extends StatelessWidget {
       height: height / 19,
       child:  Row(
         children: [
-          CustomSizedBox(
+        const  CustomSizedBox(
             widthvalue: 20,
           ),
           CustomTextWidget(

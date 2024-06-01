@@ -1,5 +1,6 @@
 import 'package:thecasinoclub/export/export.dart';
 
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
@@ -25,118 +26,44 @@ class ProfileScreen extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Container(
-                  width: width / 2.5,
-                  height: height / 2,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.amber,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircleAvatar(
-                        radius: 50,
-                      ),
-                      CustomTextWidget(text: "Aneesh")
-                    ],
-                  ),
-                ),
-                Container(
+                ProfileImageWidget(width: width, height: height),
+                SizedBox(
                   width: width / 1.8,
                   height: height / 2,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        width: width / 1,
-                        height: height / 14,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CustomTextWidget(
-                              text: "id",
-                              fontSize: 12,
-                            ),
-                            CustomTextWidget(
-                              text: "192928",
-                              fontSize: 16,
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: width / 1,
-                        height: height / 14,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CustomTextWidget(
-                              text: "userName",
-                              fontSize: 12,
-                            ),
-                            CustomTextWidget(
-                              text: "aneesh@73",
-                              fontSize: 16,
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: width / 1,
-                        height: height / 14,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CustomTextWidget(
-                              text: "Name",
-                              fontSize: 12,
-                            ),
-                            CustomTextWidget(
-                              text: "aneesh",
-                              fontSize: 16,
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: width / 1,
-                        height: height / 14,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CustomTextWidget(
-                              text: "Password",
-                              fontSize: 12,
-                            ),
-                            CustomTextWidget(
-                              text: "aneesh@73dd",
-                              fontSize: 16,
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ProfileUserInfoWidgts(
+                            width: width,
+                            height: height,
+                            inputone: "Id",
+                            inputtwo: "19489"),
+                        ProfileUserInfoWidgts(
+                            width: width,
+                            height: height,
+                            inputone: "userName",
+                            inputtwo: "aneesh@73"),
+                        ProfileUserInfoWidgts(
+                            width: width,
+                            height: height,
+                            inputone: "Name",
+                            inputtwo: "Aneesh"),
+                        ProfileUserInfoWidgts(
+                            width: width,
+                            height: height,
+                            inputone: "password",
+                            inputtwo: "allllljdd"),
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
         ),
-        Container(
-          width: width/1,
-          height: height/4,
-          color: Colors.blueGrey,
-        child: Column(
-          children: [
-            CashPointWidget(height: height,width: width,textValue: "Options",)
-          ],
-        ),
-        )
+        OptionWidgetInProfile(width: width, height: height)
       ],
     );
   }
