@@ -1,4 +1,5 @@
 import 'package:thecasinoclub/export/export.dart';
+import 'package:thecasinoclub/presentation/screen/Login_Screen/login_screen.dart';
 
 void main() {
   //stating widget of this app called "The Casino Club"
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: BottomNavigatorOption(),
+      // home: BottomNavigatorOption(),
+      home: LoginScreen(),
     );
   }
 }

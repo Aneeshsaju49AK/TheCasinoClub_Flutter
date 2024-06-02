@@ -1,4 +1,5 @@
 import 'package:thecasinoclub/export/export.dart';
+import 'package:thecasinoclub/presentation/screen/WholeSaler_Screen/landingpage_screen.dart';
 
 class GridViewForOptionsWidgetsHome extends StatelessWidget {
   const GridViewForOptionsWidgetsHome({
@@ -18,7 +19,7 @@ class GridViewForOptionsWidgetsHome extends StatelessWidget {
       width: width / 1,
       height: height / 2.3,
       child: GridView.builder(
-        physics:const NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
@@ -26,18 +27,26 @@ class GridViewForOptionsWidgetsHome extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(6.0),
-            child: Container(
-              width: width / 4,
-              height: height / 6,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                  10,
+            child: InkWell(
+              onTap: () {
+                navigateToScreen(
+                  context,
+                  LandingpageScreen(),
+                );
+              },
+              child: Container(
+                width: width / 4,
+                height: height / 6,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    10,
+                  ),
+                  color: Colors.blue,
                 ),
-                color: Colors.blue,
-              ),
-              child: Center(
-                child: CustomTextWidget(
-                  text: optionsOfview[index],
+                child: Center(
+                  child: CustomTextWidget(
+                    text: optionsOfview[index],
+                  ),
                 ),
               ),
             ),
@@ -46,4 +55,11 @@ class GridViewForOptionsWidgetsHome extends StatelessWidget {
       ),
     );
   }
+}
+
+void navigateToScreen(BuildContext context, Widget screen) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => screen),
+  );
 }
