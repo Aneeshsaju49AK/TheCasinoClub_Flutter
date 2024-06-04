@@ -1,7 +1,7 @@
 import 'package:thecasinoclub/export/export.dart';
-import 'package:thecasinoclub/presentation/screen/Login_Screen/login_screen.dart';
-
+import 'package:thecasinoclub/presentation/starting_screen.dart';
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   //stating widget of this app called "The Casino Club"
   runApp(const MyApp());
 }
@@ -27,7 +27,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: BottomNavigatorOption(),
-      home: LoginScreen(),
+      // home: LoginScreen(),
+      home: const StartingScreen(),
     );
   }
 }

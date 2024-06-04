@@ -12,6 +12,19 @@ class PlayerStatusSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> statusOption = [
+      'Active',
+      'Paused',
+      'Stoped',
+      'Dismissed',
+    ];
+
+    List<Color> statusColor = [
+      Colors.green,
+      Colors.amberAccent,
+      Colors.blue,
+      Colors.red,
+    ];
     return SizedBox(
       width: width / 1,
       height: height / 5,
@@ -29,15 +42,25 @@ class PlayerStatusSection extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 4,
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding:  EdgeInsets.all(8.0),
+                return Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      CircleAvatar(
-                        radius: 32,
+                      Stack(
+                        children: [
+                          CircleAvatar(
+                            radius: 32,
+                            backgroundColor: statusColor[index],
+                          ),
+                          CircleAvatar(
+                            radius: 12,
+                            backgroundColor: Colors.amberAccent,
+                            child: Text('1'),
+                          )
+                        ],
                       ),
                       CustomTextWidget(
-                        text: "green",
+                        text: statusOption[index],
                         fontSize: 10,
                       ),
                     ],

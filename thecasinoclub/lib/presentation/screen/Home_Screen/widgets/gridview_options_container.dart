@@ -31,7 +31,7 @@ class GridViewForOptionsWidgetsHome extends StatelessWidget {
               onTap: () {
                 navigateToScreen(
                   context,
-                  LandingpageScreen(),
+                  const LandingpageScreen(),
                 );
               },
               child: Container(
@@ -57,9 +57,4 @@ class GridViewForOptionsWidgetsHome extends StatelessWidget {
   }
 }
 
-void navigateToScreen(BuildContext context, Widget screen) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => screen),
-  );
-}
+

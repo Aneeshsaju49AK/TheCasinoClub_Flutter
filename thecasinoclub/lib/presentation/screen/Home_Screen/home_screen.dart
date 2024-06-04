@@ -15,11 +15,17 @@ class _HomeScreenState extends State<HomeScreen> {
     "Operator",
     "Player",
   ];
+  List<String> cashPointOption = ['Play Point', 'Win Point', 'End Point'];
   // this list is created to how the platforms which listed
   List<String> platformsOption = [
     "Android",
     "Ios",
     "Web",
+  ];
+  List<int> cashPointInt = [
+    300,
+    1000,
+    750,
   ];
   // in this late pagecontroller is initialised
   // and one variable which is local initialised as "0"
@@ -86,6 +92,51 @@ class _HomeScreenState extends State<HomeScreen> {
                               20,
                             ),
                           ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  cashPointOption[index],
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                    letterSpacing: 5,
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      "Your Current ${cashPointOption[index]} :",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.currency_rupee,
+                                    size: width / 10,
+                                  ),
+                                  Text(
+                                    cashPointInt[index].toString(),
+                                    style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -103,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 // This is the widget is used for show the SmoothPageIndicators
                 // paramters are width,height, also the controller
                 SmoothPageIndicatorWidget(
-                    width: width, height: height, controller: controller),
+                    width: width, height: height, controller: controller,count: 3,),
               ],
             ),
           ),

@@ -12,6 +12,26 @@ class GameListedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<IconData> platformsIcons = [
+      Icons.android,
+      Icons.gamepad,
+      Icons.ios_share,
+      Icons.gamepad_outlined,
+      Icons.web,
+      Icons.games,
+      Icons.play_circle,
+      Icons.games_rounded
+    ];
+    List<String> gameNames =[
+      'rammy',
+      'cricket',
+      'football',
+      'bascket ball',
+      'hand ball',
+      'kabadi',
+      'chess',
+      'pluzz',
+    ];
     return SizedBox(
       width: width / 1,
       height: height / 3,
@@ -29,15 +49,16 @@ class GameListedWidget extends StatelessWidget {
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
               ),
-              itemCount: 10,
+              itemCount: 8,
               itemBuilder: (context, index) {
-                return const Column(
+                return  Column(
                   children: [
                     CircleAvatar(
                       radius: 32,
+                      child: Icon(platformsIcons[index]),
                     ),
                     CustomTextWidget(
-                      text: "games",
+                      text: gameNames[index],
                       fontSize: 10,
                     ),
                   ],

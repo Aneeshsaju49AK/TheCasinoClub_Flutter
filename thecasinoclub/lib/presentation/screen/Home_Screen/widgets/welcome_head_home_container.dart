@@ -41,7 +41,8 @@ class WelcomeHeadHomeWidget extends StatelessWidget {
             ),
           ),
           const CircleAvatar(
-            radius: 32,
+            radius: 30,
+            child: Icon(Icons.person_2),
           ),
         ],
       ),

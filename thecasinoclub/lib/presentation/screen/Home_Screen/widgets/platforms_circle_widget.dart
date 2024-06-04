@@ -14,6 +14,14 @@ class PlatformCircleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<IconData> platformsIcons = [
+      Icons.android,
+      Icons.ios_share,
+      Icons.web,
+    ];
+    List<int> activeDevice = [
+      10,0,2,
+    ];
     return SizedBox(
       width: width / 1,
       height: height / 6.9,
@@ -25,12 +33,22 @@ class PlatformCircleWidget extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                const CircleAvatar(
-                  radius: 40,
+                Stack(
+                  children: [
+                    CircleAvatar(
+                      radius: 35,
+                      child: Icon(platformsIcons[index]),
+                    ),
+                    CircleAvatar(
+                      radius: 15,
+                      backgroundColor: Colors.amberAccent,
+                      child: Text(activeDevice[index].toString()),
+                    )
+                  ],
                 ),
                 CustomTextWidget(
                   text: platformsOption[index],
-                  fontSize: 10,
+                  fontSize: 13,
                 ),
               ],
             ),

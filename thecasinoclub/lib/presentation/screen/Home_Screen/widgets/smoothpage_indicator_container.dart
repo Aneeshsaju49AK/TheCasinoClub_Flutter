@@ -6,11 +6,14 @@ class SmoothPageIndicatorWidget extends StatelessWidget {
     required this.width,
     required this.height,
     required this.controller,
+   required this.count,
+    
   });
 
   final double width;
   final double height;
   final PageController controller;
+  final int count;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class SmoothPageIndicatorWidget extends StatelessWidget {
       child: Center(
         child: SmoothPageIndicator(
           controller: controller,
-          count: 3,
+          count: count,
           effect: const WormEffect(),
         ),
       ),
