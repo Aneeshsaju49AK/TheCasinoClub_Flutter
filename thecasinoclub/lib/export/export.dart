@@ -30,7 +30,7 @@ export 'package:thecasinoclub/presentation/screen/Login_Screen/login_screen.dart
 export 'package:thecasinoclub/presentation/screen/Signin_Screen/sigin_screen.dart';
 export 'package:thecasinoclub/presentation/screen/Widgets_Common/custom_textediting_controller.dart';
 export 'package:thecasinoclub/controller/common_function/common_function.dart';
-export 'package:thecasinoclub/presentation/starting_screen.dart';
+export 'package:thecasinoclub/presentation/screen/Strating_Screen/starting_screen.dart';
 
 
 
