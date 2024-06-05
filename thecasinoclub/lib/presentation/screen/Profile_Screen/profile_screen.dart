@@ -1,11 +1,19 @@
 import 'package:thecasinoclub/export/export.dart';
 
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+  
   const ProfileScreen({super.key});
 
   @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  
+  @override
   Widget build(BuildContext context) {
+    
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Column(
@@ -40,21 +48,40 @@ class ProfileScreen extends StatelessWidget {
                             height: height,
                             inputone: "Id",
                             inputtwo: "19489"),
-                        ProfileUserInfoWidgts(
-                            width: width,
-                            height: height,
-                            inputone: "userName",
-                            inputtwo: "aneesh@73"),
-                        ProfileUserInfoWidgts(
-                            width: width,
-                            height: height,
-                            inputone: "Name",
-                            inputtwo: "Aneesh"),
-                        ProfileUserInfoWidgts(
-                            width: width,
-                            height: height,
-                            inputone: "password",
-                            inputtwo: "allllljdd"),
+                        ValueListenableBuilder(
+                          valueListenable: userDetails,
+                          builder: (context, value, _) {
+                            return ProfileUserInfoWidgts(
+                              width: width,
+                              height: height,
+                              inputone: "userName",
+                              inputtwo: value.isEmpty ? '' : value[0]['username'] ?? '');
+                          },
+                          
+                        ),
+                        ValueListenableBuilder(
+                          valueListenable: userDetails,
+                          builder: (context, value, child) {
+                            return ProfileUserInfoWidgts(
+                              width: width,
+                              height: height,
+                              inputone: "userName",
+                              inputtwo: value.isEmpty ? '' : value[0]['name'] ?? '');
+                          },
+                          
+                        ),
+                        ValueListenableBuilder(
+                          valueListenable: userDetails,
+                          builder: (context, value, child) {
+                            return ProfileUserInfoWidgts(
+                              width: width,
+                              height: height,
+                              inputone: "userName",
+                              inputtwo: value.isEmpty ? '' : value[0]['password'] ?? '');
+                          },
+                          
+                        ),
+                       
                       ],
                     ),
                   ),

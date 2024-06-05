@@ -1,6 +1,7 @@
 import 'package:thecasinoclub/export/export.dart';
 
 class ProfileUserInfoWidgts extends StatelessWidget {
+  
   const ProfileUserInfoWidgts({
     super.key,
     required this.width,
@@ -16,6 +17,8 @@ class ProfileUserInfoWidgts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    
     return SizedBox(
       width: width / 1,
       height: height / 14,
@@ -24,7 +27,7 @@ class ProfileUserInfoWidgts extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomTextWidget(
-            text: inputone,
+            text:  inputone,
             fontSize: 12,
           ),
           CustomTextWidget(
