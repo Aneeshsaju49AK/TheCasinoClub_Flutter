@@ -1,6 +1,4 @@
-import 'dart:io';
 
-import 'package:image_picker/image_picker.dart';
 import 'package:thecasinoclub/export/export.dart';
 ValueNotifier<List<Map<String, String? >>> userDetails = ValueNotifier([]);
 class ProfileImageWidget extends StatefulWidget {
@@ -78,9 +76,9 @@ class _ProfileImageWidgetState extends State<ProfileImageWidget> {
                   backgroundImage: _profilePicturePath != null?
                   FileImage(File(_profilePicturePath!)):null,
                   child: _profilePicturePath == null?
-                  Icon(Icons.person):null,
+                const  Icon(Icons.person):null,
                 ),
-                Positioned(
+               const Positioned(
                   left: 60,
                   top: 70,
                   child: CircleAvatar(
@@ -112,16 +110,16 @@ class _ProfileImageWidgetState extends State<ProfileImageWidget> {
 
   editButtomSheet(BuildContext context){
     showBottomSheet(context: context, builder: (context) {
-      return Container(
+      return SizedBox(
         width: double.infinity,
         height: 500,
         child: Form(
           key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(Icons.arrow_drop_down),
-              Text("Edit Details"),
+            children:   [
+             const Icon(Icons.arrow_drop_down),
+            const  Text("Edit Details"),
               CustomTextEditField(height: 800,width: 320,
               controller: usernameController,label: 'username',),
               CustomTextEditField(height: 800,width: 320,controller: nameController, label: 'name',),
@@ -133,8 +131,8 @@ class _ProfileImageWidgetState extends State<ProfileImageWidget> {
                     onTap: () {
                       handleSaveButtonPress(context);
                     },
-                    child: CustomButtomCommon(height: 100,width: 200,heightNeeded: 2,widthNeeded: 2,textValue: "save",)),
-                  CustomButtomCommon(height: 100,width: 200,heightNeeded: 2,widthNeeded: 2,textValue: "clear",),
+                    child:const CustomButtomCommon(height: 100,width: 200,heightNeeded: 2,widthNeeded: 2,textValue: "save",)),
+                 const CustomButtomCommon(height: 100,width: 200,heightNeeded: 2,widthNeeded: 2,textValue: "clear",),
                 ],
               )
           
@@ -149,13 +147,13 @@ class _ProfileImageWidgetState extends State<ProfileImageWidget> {
     showBottomSheet(
       context: context,
       builder: (context) {
-        return Container(
+        return SizedBox(
           height: 150,
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text("Select the image source"),
+            const  Text("Select the image source"),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -169,8 +167,8 @@ class _ProfileImageWidgetState extends State<ProfileImageWidget> {
                       _profilePicturePath = image!.path;
                       Navigator.pop(context);
                     },
-                    label: Text('Camera'),
-                    icon: Icon(Icons.camera),
+                    label:const Text('Camera'),
+                    icon:const Icon(Icons.camera),
                   ),
                   TextButton.icon(
                     onPressed: () async {
@@ -182,8 +180,8 @@ class _ProfileImageWidgetState extends State<ProfileImageWidget> {
                       _profilePicturePath = image!.path;
                       Navigator.pop(context);
                     },
-                    label: Text('Gallery'),
-                    icon: Icon(Icons.photo),
+                    label:const Text('Gallery'),
+                    icon:const Icon(Icons.photo),
                   ),
                 ],
               ),

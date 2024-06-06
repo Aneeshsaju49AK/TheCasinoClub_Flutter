@@ -98,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   cashPointOption[index],
-                                  style: TextStyle(
+                                  style:const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w700,
                                     letterSpacing: 5,
@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
                                       "Your Current ${cashPointOption[index]} :",
-                                      style: TextStyle(
+                                      style:const TextStyle(
                                         fontSize: 18,
                                       ),
                                     ),
@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   Text(
                                     cashPointInt[index].toString(),
-                                    style: TextStyle(
+                                    style:const TextStyle(
                                       fontSize: 30,
                                       fontWeight: FontWeight.w700,
                                     ),

@@ -1,4 +1,3 @@
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:thecasinoclub/export/export.dart';
 
 class SiginScreen extends StatefulWidget {
@@ -15,16 +14,20 @@ class _SiginScreenState extends State<SiginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-
-  Future<void> saveUserInfo(String username,String mobile,String email,String password,)async{
-   final SharedPreferences preferences = await SharedPreferences.getInstance();
-   await preferences.setString('username', username);
-   await preferences.setString('mobile', mobile);
-   await preferences.setString('email', email);
-   await preferences.setString('password', password);
+  Future<void> saveUserInfo(
+    String username,
+    String mobile,
+    String email,
+    String password,
+  ) async {
+    final SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.setString('username', username);
+    await preferences.setString('mobile', mobile);
+    await preferences.setString('email', email);
+    await preferences.setString('password', password);
   }
 
-  Future<Map<String, String?>> getUserInfo()async{
+  Future<Map<String, String?>> getUserInfo() async {
     final SharedPreferences preferences = await SharedPreferences.getInstance();
     final String? username = preferences.getString('username');
     final String? mobile = preferences.getString('mobile');
@@ -32,43 +35,44 @@ class _SiginScreenState extends State<SiginScreen> {
     final String? password = preferences.getString('password');
     return {
       'username': username,
-      'mobile' : mobile,
-      'email' : email,
-      'password' : password,
+      'mobile': mobile,
+      'email': email,
+      'password': password,
     };
   }
 
-  bool isPassword(String password){
+  bool isPassword(String password) {
     return RegExp(r'^(?=.*[a-zA-Z])(?=.*\d).+$').hasMatch(password);
   }
-  bool isEmailValid(String email){
+
+  bool isEmailValid(String email) {
     return RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$')
-        .hasMatch(email); 
+        .hasMatch(email);
   }
 
-  void  handleSignupButtonPress(BuildContext context)async{
-    if(_formKey.currentState?.validate() ?? false){
+  void handleSignupButtonPress(BuildContext context) async {
+    if (_formKey.currentState?.validate() ?? false) {
       String username = userNameController.text;
       String mobile = mobileNumberController.text;
       String email = emailController.text;
       String password = passwordController.text;
-      print(username);
-      print(mobile);
-      print(email);
-      print(password);
+      // print(username);
+      // print(mobile);
+      // print(email);
+      // print(password);
 
       await saveUserInfo(username, mobile, email, password);
-      if(!isEmailValid(email)){
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Invalid email format"),)
-        );
+      if (!isEmailValid(email)) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("Invalid email format"),
+        ));
         return;
       }
 
-      if(!isPassword(password)){
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Invalid password format"),)
-        );
+      if (!isPassword(password)) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("Invalid password format"),
+        ));
         return;
       }
 
@@ -155,7 +159,7 @@ class _SiginScreenState extends State<SiginScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                         handleSignupButtonPress(context);
+                          handleSignupButtonPress(context);
                         },
                         child: SizedBox(
                           width: width / 1,
@@ -181,7 +185,7 @@ class _SiginScreenState extends State<SiginScreen> {
                                     onPressed: () {
                                       navigateToScreen(
                                         context,
-                                        StartingScreen(),
+                                     const StartingScreen(),
                                       );
                                     },
                                     child: const Text(

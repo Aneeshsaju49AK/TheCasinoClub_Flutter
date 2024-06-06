@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:thecasinoclub/export/export.dart';
-import 'package:thecasinoclub/presentation/screen/Banned_User_Screen/banned_user_screen.dart';
-import 'package:thecasinoclub/presentation/screen/Policy_Screen/policy_screen.dart';
-import 'package:thecasinoclub/presentation/screen/Summary_Screen/summary_screen.dart';
-import 'package:thecasinoclub/presentation/screen/Transaction_Screen/transaction_screen.dart';
 
 class OptionWidgetInProfile extends StatelessWidget {
   const OptionWidgetInProfile({
@@ -33,11 +28,11 @@ class OptionWidgetInProfile extends StatelessWidget {
     ];
 
     List<Widget> optionsScreen = [
-      PolicyScreen(),
-      TransactionScreen(),
-      SummaryScreen(),
-      BannedUserScreen(),
-      LoginScreen(),
+      const PolicyScreen(),
+      const TransactionScreen(),
+      const SummaryScreen(),
+      const BannedUserScreen(),
+      const LoginScreen(),
     ];
     return SizedBox(
       width: width / 1,
@@ -63,23 +58,30 @@ class OptionWidgetInProfile extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         if (optionsScreen[index] == optionsScreen[4]) {
-                          showDialog(context: context,
-                           builder: (context) {
-                             return AlertDialog(
-                              title: Text("Confirmation"),
-                              content: Text("Are you sure you want to exit"),
-                              actions: [
-                                TextButton(onPressed: () {
-                                  navigateToScreenPushReplacement(
-                              context, optionsScreen[4]);
-                                }, child: Text("Sure"),),
-                                TextButton(onPressed: () {
-                                  Navigator.of(context).pop();
-                                }, child: Text("No"),),
-                              ],
-                             );
-                           },);
-                          
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title:const Text("Confirmation"),
+                                content: const Text("Are you sure you want to exit"),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      navigateToScreenPushReplacement(
+                                          context, optionsScreen[4]);
+                                    },
+                                    child: const Text("Sure"),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child:const Text("No"),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                         } else {
                           navigateToScreen(context, optionsScreen[index]);
                         }

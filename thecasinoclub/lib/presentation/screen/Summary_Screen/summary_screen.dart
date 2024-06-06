@@ -1,6 +1,5 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 
+import 'package:thecasinoclub/export/export.dart';
 class SummaryScreen extends StatelessWidget {
   const SummaryScreen({super.key});
 

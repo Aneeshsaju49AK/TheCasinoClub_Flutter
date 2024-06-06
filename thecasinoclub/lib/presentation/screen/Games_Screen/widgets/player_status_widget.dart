@@ -43,7 +43,7 @@ class PlayerStatusSection extends StatelessWidget {
               itemCount: 4,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding:const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
                       Stack(
@@ -52,7 +52,7 @@ class PlayerStatusSection extends StatelessWidget {
                             radius: 32,
                             backgroundColor: statusColor[index],
                           ),
-                          CircleAvatar(
+                         const CircleAvatar(
                             radius: 12,
                             backgroundColor: Colors.amberAccent,
                             child: Text('1'),

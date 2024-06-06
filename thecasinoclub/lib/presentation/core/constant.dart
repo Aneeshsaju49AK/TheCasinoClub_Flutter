@@ -4,4 +4,4 @@ import 'package:thecasinoclub/export/export.dart';
 
 const Color kWhite = Colors.white;
 const Color kGrey = Colors.grey;
-const Color KBlack = Colors.black;
+const Color kBlack = Colors.black;

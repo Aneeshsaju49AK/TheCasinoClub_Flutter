@@ -1,5 +1,5 @@
 import 'package:thecasinoclub/export/export.dart';
-import 'package:thecasinoclub/presentation/screen/Strating_Screen/starting_screen.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   //stating widget of this app called "The Casino Club"

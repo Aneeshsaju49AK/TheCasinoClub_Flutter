@@ -1,7 +1,4 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:thecasinoclub/export/export.dart';
-import 'package:thecasinoclub/presentation/screen/Widgets_Common/custom_page_heading.dart';
 
 class BannedUserScreen extends StatelessWidget {
   const BannedUserScreen({super.key});
@@ -35,10 +32,8 @@ class BannedUserScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10)),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            
                             children: [
-                              Column(
-                                
+                              const Column(
                                 children: [
                                   Row(
                                     children: [

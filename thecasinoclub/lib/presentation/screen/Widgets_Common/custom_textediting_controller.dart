@@ -39,7 +39,7 @@ class CustomTextEditField extends StatelessWidget {
           ),
         ),
         onChanged: (value) {
-          print(value);
+          
         },
       ),
     );

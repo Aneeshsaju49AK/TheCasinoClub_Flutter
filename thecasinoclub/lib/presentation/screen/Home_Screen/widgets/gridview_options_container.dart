@@ -1,5 +1,4 @@
 import 'package:thecasinoclub/export/export.dart';
-import 'package:thecasinoclub/presentation/screen/WholeSaler_Screen/landingpage_screen.dart';
 
 class GridViewForOptionsWidgetsHome extends StatelessWidget {
   const GridViewForOptionsWidgetsHome({
@@ -15,13 +14,8 @@ class GridViewForOptionsWidgetsHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> optionsofPlayer = ['Active', 'offline', 'banned'];
 
-    List<String> optionsofPlayer =[
-      'Active',
-      'offline',
-      'banned'
-    ];
-    
     List<String> optionsOfviewWhole = [
       "Retailer",
       "Operator",
@@ -68,7 +62,8 @@ class GridViewForOptionsWidgetsHome extends StatelessWidget {
             child: InkWell(
               onTap: () {
                 navigateToScreen(
-                  context,optionScreen[index],
+                  context,
+                  optionScreen[index],
                 );
               },
               child: Container(

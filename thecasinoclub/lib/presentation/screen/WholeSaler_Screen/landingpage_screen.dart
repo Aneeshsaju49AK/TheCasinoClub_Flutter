@@ -1,6 +1,4 @@
 import 'package:thecasinoclub/export/export.dart';
-import 'package:thecasinoclub/presentation/screen/Add_screen/add_user.dart';
-import 'package:thecasinoclub/presentation/screen/View_Page_People_Under_Screen/viewpage_peopleunder.dart';
 
 class LandingpageScreen extends StatefulWidget {
   const LandingpageScreen({
@@ -61,7 +59,9 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
                           onTap: () {
                             navigateToScreen(
                               context,
-                              ViewpagePeopleunder(),
+                              ViewpagePeopleunder(
+                                viewname: widget.optionsOfview![index],
+                              ),
                             );
                           },
                           child: Padding(
@@ -94,17 +94,17 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
                                     children: [
                                       Text(
                                         widget.optionsOfview!.length.toString(),
-                                        style: TextStyle(
+                                        style:const TextStyle(
                                           fontSize: 40,
                                           fontWeight: FontWeight.w700,
                                         ),
                                       ),
                                     ],
                                   ),
-                                  Row(
+                                const  Row(
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: EdgeInsets.all(8.0),
                                         child: Text(
                                           "See All",
                                           style: TextStyle(
@@ -183,12 +183,17 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          navigateToScreen(context, AddUser(),);
+          navigateToScreen(
+            context,
+            AddUser(
+              user: optionsAdd.length,
+            ),
+          );
         },
         child: const Text("Add"),
       ),
     );
   }
 
-  
+  List<String> optionsAdd = ['wholesaler', 'retailer', 'operator', 'player'];
 }

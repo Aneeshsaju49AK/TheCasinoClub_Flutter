@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:thecasinoclub/presentation/screen/Widgets_Common/custom_page_heading.dart';
+import 'package:thecasinoclub/export/export.dart';
 
 class PolicyScreen extends StatelessWidget {
   const PolicyScreen({super.key});
@@ -19,30 +17,30 @@ class PolicyScreen extends StatelessWidget {
               height: height,
               textValue: "Policy",
             ),
-            Text(
+            const Text(
               'The Casino club',
               style: TextStyle(
                 fontSize: 24,
               ),
             ),
-            Text(
+            const Text(
               'App Info',
               style: TextStyle(
                 fontSize: 20,
               ),
             ),
-            Text('''Author Details :
+            const Text('''Author Details :
             author name : Aneesh saju
             version : 0.1 
             property : emergiotech
             '''),
-            Text(
+            const Text(
               'Privacy policy ',
               style: TextStyle(
                 fontSize: 20,
               ),
             ),
-            Text('''Infromation Collect :
+            const Text('''Infromation Collect :
             Name,
             UserName,
             Mobile,

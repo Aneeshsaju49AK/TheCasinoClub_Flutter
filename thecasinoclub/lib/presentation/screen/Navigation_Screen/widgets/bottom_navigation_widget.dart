@@ -22,10 +22,10 @@ class BottomNavigationWidget extends StatelessWidget {
           // also the selected and unselected icons
           type: BottomNavigationBarType.fixed,
           elevation: 0,
-          selectedItemColor: KBlack,
+          selectedItemColor: kBlack,
           unselectedItemColor: kGrey,
           selectedIconTheme: const IconThemeData(
-            color: KBlack,
+            color: kBlack,
           ),
           unselectedIconTheme: const IconThemeData(
             color: kGrey,

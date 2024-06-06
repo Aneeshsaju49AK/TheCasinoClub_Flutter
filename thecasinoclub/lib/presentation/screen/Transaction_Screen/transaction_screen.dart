@@ -1,6 +1,5 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:thecasinoclub/presentation/screen/Widgets_Common/custom_page_heading.dart';
+
+import 'package:thecasinoclub/export/export.dart';
 
 class TransactionScreen extends StatelessWidget {
   const TransactionScreen({super.key});
@@ -18,13 +17,13 @@ class TransactionScreen extends StatelessWidget {
               height: height,
               textValue: "Transacation",
             ),
-            Container(
+            SizedBox(
               width: width/1,
               height: height/ 1.2,
               child: ListView.builder(itemBuilder: (context, index) {
                 
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
+                return const Padding(
+                  padding:  EdgeInsets.all(8.0),
                   child: Card(
                     elevation: 1,
                   

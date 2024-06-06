@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:thecasinoclub/presentation/screen/Add_screen/add_user.dart';
-import 'package:thecasinoclub/presentation/screen/Authentication_Screen/widgets/user_info_authentication.dart';
-import 'package:thecasinoclub/presentation/screen/Login_Screen/login_screen.dart';
-import 'package:thecasinoclub/presentation/screen/Widgets_Common/custom_circle_button_common.dart';
-import 'package:thecasinoclub/presentation/screen/Widgets_Common/custom_page_heading.dart';
+import 'package:thecasinoclub/export/export.dart';
 
 class ViewpagePeopleunder extends StatelessWidget {
-  const ViewpagePeopleunder({super.key});
+  const ViewpagePeopleunder({
+    super.key,
+    required this.viewname,
+  });
+
+  final String viewname;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class ViewpagePeopleunder extends StatelessWidget {
             PageHeadingCommon(
               width: width,
               height: height,
-              textValue: 'list of user',
+              textValue: viewname,
             ),
             Column(
               children: [
@@ -27,11 +27,10 @@ class ViewpagePeopleunder extends StatelessWidget {
                   width: width / 1,
                   height: height / 1.2,
                   child: ValueListenableBuilder(
-                    valueListenable: adduserlist,
+                    valueListenable: addplayerlist,
                     builder: (context, value, _) {
-                      
                       if (value.isEmpty) {
-                        return Container(
+                        return const SizedBox(
                           child: Center(
                             child: Text("No Requests"),
                           ),
@@ -44,147 +43,147 @@ class ViewpagePeopleunder extends StatelessWidget {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
-                              width: width / 1.5,
-                              height: height / 1.3,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: const Color.fromARGB(255, 214, 203, 162),
-                              ),
-                              child: Column(
-                                children: [
-                                  UserInfoInAuthentication(
-                                    width: width,
-                                    height: height,
-                                    inputOne: "Id :",
-                                    inputTwo: "nil",
-                                  ),
-                                  UserInfoInAuthentication(
-                                    width: width,
-                                    height: height,
-                                    inputOne: "UserName :",
-                                    inputTwo: value.isEmpty
-                                        ? ''
-                                        : user['username'] ?? 'waiting',
-                                  ),
-                                  UserInfoInAuthentication(
-                                    width: width,
-                                    height: height,
-                                    inputOne: "Password :",
-                                    inputTwo: value.isEmpty
-                                        ? ''
-                                        : user['password'] ?? 'waiting',
-                                  ),
-                                  UserInfoInAuthentication(
-                                    width: width,
-                                    height: height,
-                                    inputOne: "TranscationPassword :",
-                                    inputTwo: value.isEmpty
-                                        ? ''
-                                        : user['transactionpass'] ??
-                                            'waiting',
-                                  ),
-                                  UserInfoInAuthentication(
-                                    width: width,
-                                    height: height,
-                                    inputOne: "Name :",
-                                    inputTwo: value.isEmpty
-                                        ? ''
-                                        : user['name'] ?? 'waiting',
-                                  ),
-                                  UserInfoInAuthentication(
-                                    width: width,
-                                    height: height,
-                                    inputOne: "Email :",
-                                    inputTwo: value.isEmpty
-                                        ? ''
-                                        : user['email'] ?? 'waiting',
-                                  ),
-                                  UserInfoInAuthentication(
-                                    width: width,
-                                    height: height,
-                                    inputOne: "revenue :",
-                                    inputTwo: value.isEmpty
-                                        ? ''
-                                        : user['revenue'] ?? 'waiting',
-                                  ),
-                                  SizedBox(
-                                    width: width / 1,
-                                    height: height / 12,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        InkWell(
-                                          onTap: () {
-                                            // handleApprovalButtonPress(context);
-                                          },
-                                          child: CustomButtomCommon(
-                                            width: width,
-                                            height: height,
-                                            textValue: "Wallet Tranfer",
-                                            heightNeeded: 17,
-                                            widthNeeded: 2,
-                                            colorNeeded: Colors.greenAccent,
-                                          ),
-                                        ),
-                                        InkWell(
-                                          onTap: () {
-                                            // handleIgnoreButtonPress(context);
-                                          },
-                                          child: CustomButtomCommon(
-                                            width: width,
-                                            height: height,
-                                            textValue: "Edit",
-                                            heightNeeded: 17,
-                                            widthNeeded: 3.2,
-                                            colorNeeded: Colors.redAccent,
-                                          ),
-                                        ),
-                                      ],
+                                width: width / 1.5,
+                                height: height / 1.3,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color:
+                                      const Color.fromARGB(255, 214, 203, 162),
+                                ),
+                                child: Column(
+                                  children: [
+                                    UserInfoInAuthentication(
+                                      width: width,
+                                      height: height,
+                                      inputOne: "Id :",
+                                      inputTwo: "nil",
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: width / 1,
-                                    height: height / 12,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        InkWell(
-                                          onTap: () {
-                                            // handleApprovalButtonPress(context);
-                                          },
-                                          child: CustomButtomCommon(
-                                            width: width,
-                                            height: height,
-                                            textValue: "Delete",
-                                            heightNeeded: 17,
-                                            widthNeeded: 2,
-                                            colorNeeded: Colors.redAccent,
-                                          ),
-                                        ),
-                                        InkWell(
-                                          onTap: () {
-                                            // handleIgnoreButtonPress(context);
-                                          },
-                                          child: CustomButtomCommon(
-                                            width: width,
-                                            height: height,
-                                            textValue: "Ban",
-                                            heightNeeded: 17,
-                                            widthNeeded: 3.2,
-                                            colorNeeded: Colors.redAccent,
-                                          ),
-                                        ),
-                                      ],
+                                    UserInfoInAuthentication(
+                                      width: width,
+                                      height: height,
+                                      inputOne: "UserName :",
+                                      inputTwo: value.isEmpty
+                                          ? ''
+                                          : user['username'] ?? 'waiting',
                                     ),
-                                  )
-                                ],
+                                    UserInfoInAuthentication(
+                                      width: width,
+                                      height: height,
+                                      inputOne: "Password :",
+                                      inputTwo: value.isEmpty
+                                          ? ''
+                                          : user['password'] ?? 'waiting',
+                                    ),
+                                    UserInfoInAuthentication(
+                                      width: width,
+                                      height: height,
+                                      inputOne: "TranscationPassword :",
+                                      inputTwo: value.isEmpty
+                                          ? ''
+                                          : user['transactionpass'] ??
+                                              'waiting',
+                                    ),
+                                    UserInfoInAuthentication(
+                                      width: width,
+                                      height: height,
+                                      inputOne: "Name :",
+                                      inputTwo: value.isEmpty
+                                          ? ''
+                                          : user['name'] ?? 'waiting',
+                                    ),
+                                    UserInfoInAuthentication(
+                                      width: width,
+                                      height: height,
+                                      inputOne: "Email :",
+                                      inputTwo: value.isEmpty
+                                          ? ''
+                                          : user['email'] ?? 'waiting',
+                                    ),
+                                    UserInfoInAuthentication(
+                                      width: width,
+                                      height: height,
+                                      inputOne: "revenue :",
+                                      inputTwo: value.isEmpty
+                                          ? ''
+                                          : user['revenue'] ?? 'waiting',
+                                    ),
+                                    SizedBox(
+                                      width: width / 1,
+                                      height: height / 12,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          InkWell(
+                                            onTap: () {
+                                              // handleApprovalButtonPress(context);
+                                            },
+                                            child: CustomButtomCommon(
+                                              width: width,
+                                              height: height,
+                                              textValue: "Wallet Tranfer",
+                                              heightNeeded: 17,
+                                              widthNeeded: 2,
+                                              colorNeeded: Colors.greenAccent,
+                                            ),
+                                          ),
+                                          InkWell(
+                                            onTap: () {
+                                              // handleIgnoreButtonPress(context);
+                                            },
+                                            child: CustomButtomCommon(
+                                              width: width,
+                                              height: height,
+                                              textValue: "Edit",
+                                              heightNeeded: 17,
+                                              widthNeeded: 3.2,
+                                              colorNeeded: Colors.redAccent,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: width / 1,
+                                      height: height / 12,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          InkWell(
+                                            onTap: () {
+                                              // handleApprovalButtonPress(context);
+                                            },
+                                            child: CustomButtomCommon(
+                                              width: width,
+                                              height: height,
+                                              textValue: "Delete",
+                                              heightNeeded: 17,
+                                              widthNeeded: 2,
+                                              colorNeeded: Colors.redAccent,
+                                            ),
+                                          ),
+                                          InkWell(
+                                            onTap: () {
+                                              // handleIgnoreButtonPress(context);
+                                            },
+                                            child: CustomButtomCommon(
+                                              width: width,
+                                              height: height,
+                                              textValue: "Ban",
+                                              heightNeeded: 17,
+                                              widthNeeded: 3.2,
+                                              colorNeeded: Colors.redAccent,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
-                                                        ),
                             );
                           },
-                          
                         );
                       }
                     },
