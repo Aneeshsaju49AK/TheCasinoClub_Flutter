@@ -55,7 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               width: width,
                               height: height,
                               inputone: "userName",
-                              inputtwo: value.isEmpty ? '' : value[0]['username'] ?? '');
+                              inputtwo: value.isEmpty ? 'Guest' : value[0]['username'] ?? '');
                           },
                           
                         ),
@@ -66,7 +66,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               width: width,
                               height: height,
                               inputone: "userName",
-                              inputtwo: value.isEmpty ? '' : value[0]['name'] ?? '');
+                              inputtwo: value.isEmpty ? 'Guest' : value[0]['name'] ?? '');
                           },
                           
                         ),
@@ -77,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               width: width,
                               height: height,
                               inputone: "userName",
-                              inputtwo: value.isEmpty ? '' : value[0]['password'] ?? '');
+                              inputtwo: value.isEmpty ? 'Guest' : value[0]['password'] ?? '');
                           },
                           
                         ),

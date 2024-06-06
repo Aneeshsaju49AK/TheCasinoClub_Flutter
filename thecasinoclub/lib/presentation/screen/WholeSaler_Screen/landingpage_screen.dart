@@ -1,19 +1,22 @@
 import 'package:thecasinoclub/export/export.dart';
+import 'package:thecasinoclub/presentation/screen/Add_screen/add_user.dart';
+import 'package:thecasinoclub/presentation/screen/View_Page_People_Under_Screen/viewpage_peopleunder.dart';
 
 class LandingpageScreen extends StatefulWidget {
-  const LandingpageScreen({super.key});
+  const LandingpageScreen({
+    super.key,
+    this.optionsOfview,
+    required this.pageName,
+  });
+
+  final List<String>? optionsOfview;
+  final String pageName;
 
   @override
   State<LandingpageScreen> createState() => _LandingpageScreenState();
 }
 
 class _LandingpageScreenState extends State<LandingpageScreen> {
-  List<String> optionsOfview = [
-    "WholeSaler",
-    "Retailer",
-    "Operator",
-    "Player",
-  ];
   late PageController controller;
   int _currentIndex = 0;
 
@@ -36,7 +39,7 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
             PageHeadingCommon(
               width: width,
               height: height,
-              textValue: "Wholesale",
+              textValue: widget.pageName,
             ),
             SizedBox(
               width: width / 1,
@@ -52,59 +55,67 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
                     width: width / 1,
                     height: height / 4.3,
                     child: CarouselSlider.builder(
-                      itemCount: 4,
+                      itemCount: widget.optionsOfview?.length,
                       itemBuilder: (context, index, int realIndex) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: width / 1.1,
-                            height: height / 4.3,
-                            decoration: BoxDecoration(
-                              color: Colors.blueAccent,
-                              borderRadius: BorderRadius.circular(
-                                20,
+                        return InkWell(
+                          onTap: () {
+                            navigateToScreen(
+                              context,
+                              ViewpagePeopleunder(),
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: width / 1.1,
+                              height: height / 4.3,
+                              decoration: BoxDecoration(
+                                color: Colors.blueAccent,
+                                borderRadius: BorderRadius.circular(
+                                  20,
+                                ),
                               ),
-                            ),
-                            child: Column(
-                              children: [
-                                Text(
-                                  optionsOfview[index],
-                                ),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                          "Total count of ${optionsOfview[index]} :"),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      optionsOfview.length.toString(),
-                                      style: TextStyle(
-                                        fontSize: 40,
-                                        fontWeight: FontWeight.w700,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    widget.optionsOfview![index],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                            "Total count of ${widget.optionsOfview![index]} :"),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        "See All",
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        widget.optionsOfview!.length.toString(),
                                         style: TextStyle(
-                                          fontSize: 16,
+                                          fontSize: 40,
+                                          fontWeight: FontWeight.w700,
                                         ),
                                       ),
-                                    )
-                                  ],
-                                )
-                              ],
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "See All",
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         );
@@ -124,7 +135,7 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
                     width: width,
                     height: height,
                     controller: controller,
-                    count: 4,
+                    count: widget.optionsOfview!.length,
                   ),
                 ],
               ),
@@ -171,9 +182,13 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          navigateToScreen(context, AddUser(),);
+        },
         child: const Text("Add"),
       ),
     );
   }
+
+  
 }

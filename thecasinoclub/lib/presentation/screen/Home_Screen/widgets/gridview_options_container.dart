@@ -15,6 +15,44 @@ class GridViewForOptionsWidgetsHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    List<String> optionsofPlayer =[
+      'Active',
+      'offline',
+      'banned'
+    ];
+    
+    List<String> optionsOfviewWhole = [
+      "Retailer",
+      "Operator",
+      "Player",
+    ];
+    List<String> optionsOfviewRetailer = [
+      "Operator",
+      "Player",
+    ];
+    List<String> optionsOfviewOperator = [
+      "Player",
+    ];
+    List<Widget> optionScreen = [
+      LandingpageScreen(
+        optionsOfview: optionsOfviewWhole,
+        pageName: 'Wholesaler',
+      ),
+      LandingpageScreen(
+        optionsOfview: optionsOfviewRetailer,
+        pageName: "Retailer",
+      ),
+      LandingpageScreen(
+        optionsOfview: optionsOfviewOperator,
+        pageName: "Operator",
+      ),
+      LandingpageScreen(
+        optionsOfview: optionsofPlayer,
+        pageName: "player",
+      ),
+    ];
+
     return SizedBox(
       width: width / 1,
       height: height / 2.3,
@@ -30,8 +68,7 @@ class GridViewForOptionsWidgetsHome extends StatelessWidget {
             child: InkWell(
               onTap: () {
                 navigateToScreen(
-                  context,
-                  const LandingpageScreen(),
+                  context,optionScreen[index],
                 );
               },
               child: Container(
@@ -56,5 +93,3 @@ class GridViewForOptionsWidgetsHome extends StatelessWidget {
     );
   }
 }
-
-
